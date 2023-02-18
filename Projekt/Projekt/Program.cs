@@ -13,22 +13,23 @@ while (pokracovat)
     Console.WriteLine("3 - Vyhledat pojištěného");
     Console.WriteLine("4 - Konec");
     
-    int akce;
-    while (!int.TryParse(Console.ReadLine(), out akce));
+    string akce = Console.ReadLine();
     Console.WriteLine();
 
     switch (akce)
     {
-        case 1:
+        case "1":
             seznamPojistenych.PridejPojistence();
             break;
-        case 2:
-            seznamPojistenych.VypisPojistence();
+        case "2":
+            foreach (PojistenaOsoba pojistenec in seznamPojistenych.pojisteneOsoby)
+                Console.WriteLine(pojistenec);
             break;
-        case 3:
-            seznamPojistenych.NajdiPojistence();
+        case "3":
+            foreach (PojistenaOsoba pojistenec in seznamPojistenych.NajdiPojistence())
+                Console.WriteLine(pojistenec);
             break;
-        case 4:
+        case "4":
             pokracovat = false;
             break;
         default:
